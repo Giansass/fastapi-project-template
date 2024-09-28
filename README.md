@@ -78,6 +78,7 @@ This project aims to define a template to use to develop a Python project. The t
 This section lists the programming languages used in the project:
 
 [![Python][Python.com]][Python-url]
+[![FastAPI][FastAPI]][FastAPI-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,6 +187,8 @@ Andrea Giansanti
 [license-url]: https://github.com/Giansass/python-project-template/blob/develop/LICENSE
 [Python.com]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://www.python.org/
+[FastAPI]: https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
+[FastAPI-url]: https://fastapi.tiangolo.com/
 [pre-commit-shield]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=for-the-badge
 [pre-commit-url]: https://pre-commit.com/
 [black-shield]: https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge

@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python_project_template"
+name = "fastapi_project_template"
 version = "0.1.0"
-description = "A template for python projects"
+description = "A template for FastAPI projects"
 authors = ["Andrea Giansanti <andreagiansanti90@gmail.com>"]
 license = "MIT License"
 readme = "README.md"
