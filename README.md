@@ -102,26 +102,28 @@ In order to properly install the template take the following steps:
    ```sh
    git clone https://github.com/<user_name>/<repo_name>.git
    ```
+3. Clean poetry cache
+4. 
 
-3. Create a poetry virtualenv
+5. Create a poetry virtualenv
    ```sh
    poetry env use python3
    ```
-4. Create the poetry.lock form the pyproject.toml (I decided to not committing the poetry.lock since the project doesn't not need to bee perfectly reproducible in other environments, here the [official documentation](https://python-poetry.org/docs/basic-usage/#committing-your-poetrylock-file-to-version-control))
+6. Create the poetry.lock form the pyproject.toml (I decided to not committing the poetry.lock since the project doesn't not need to bee perfectly reproducible in other environments, here the [official documentation](https://python-poetry.org/docs/basic-usage/#committing-your-poetrylock-file-to-version-control))
    ```sh
    poetry lock
    ```
-5. Install all the packages in the poetry.lock
+7. Install all the packages in the poetry.lock
    ```sh
    poetry install
    ```
 
-6. Install all pre-commit hooks
+8. Install all pre-commit hooks
    ```sh
    pre-commit install --hook-type pre-commit --hook-type pre-push
    ```
 
-7. Modify project, copyright, author and release from the docs/conf.py used by Sphinx
+9. Modify project, copyright, author and release from the docs/conf.py used by Sphinx
    ```sh
    project_name=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
    sed "s/python_project_template/${project_name}/" docs/conf.py
