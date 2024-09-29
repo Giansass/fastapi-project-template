@@ -1,4 +1,4 @@
-# A Python project template
+# A FastAPI project template
 <a id="readme-top"></a>
 <!-- PROJECT SHIELDS -->
 <!--
@@ -22,7 +22,7 @@
 <br />
 <div align="center">
 
-  <h3 align="center">python-project-template</h3>
+  <h3 align="center">fastapi-project-template</h3>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
@@ -103,7 +103,7 @@ In order to properly install the template take the following steps:
    git clone https://github.com/<user_name>/<repo_name>.git
    ```
 3. Clean poetry cache
-4. 
+4.
 
 5. Create a poetry virtualenv
    ```sh
