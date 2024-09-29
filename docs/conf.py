@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "python_project_template"
+project = "fastapi-project-template"
 copyright = "2024, Andrea Giansanti"
 author = "Andrea Giansanti"
 release = "v0.3.0"
