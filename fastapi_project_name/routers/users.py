@@ -53,16 +53,28 @@ async def add_username(userinfo: UserInfo):
         "surname": userinfo.surname,
         "age": userinfo.age,
     }
-    return granted_usernames
+    return {"message": f"Username {userinfo.user} added"}
 
 
-@router.put("/{username}")
-async def update_name(username: str):
+@router.put("/update_username")
+async def update_name(userinfo: UserInfo):
     """Update the required user"""
-    return username
+    if userinfo.user not in granted_usernames:
+        raise HTTPException(status_code=400, detail="Username not found")
+
+    granted_usernames[userinfo.user] = {
+        "name": userinfo.name,
+        "surname": userinfo.surname,
+        "age": userinfo.age,
+    }
+    return {"message": f"Username {userinfo.user} updated"}
 
 
-@router.delete("/{username}")
+@router.delete("/delete_username/{username}")
 async def delete(username: str):
     """Delete the required user"""
-    return username
+    if username not in granted_usernames:
+        raise HTTPException(status_code=400, detail="Username not found")
+
+    del granted_usernames[username]
+    return {"message": f"Username {username} deleted"}
