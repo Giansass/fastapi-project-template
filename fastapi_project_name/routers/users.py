@@ -48,7 +48,6 @@ async def read_user(username: str):
 @router.post("/add_username")
 async def add_username(userinfo: UserInfo):
     """Add the required user"""
-    # global granted_usernames
     granted_usernames[userinfo.user] = {
         "name": userinfo.name,
         "surname": userinfo.surname,
