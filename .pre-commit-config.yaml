@@ -59,11 +59,6 @@ repos:
         language_version: python3.10
         args:
         -   --line-length=128
-    -   id: black-jupyter
-        name: black-jupyter
-        description: Check PEP8 standards on jupyter
-        stages: [commit]
-        language_version: python3.10
 
 -   repo: https://github.com/pycqa/isort
     rev: 5.13.2
