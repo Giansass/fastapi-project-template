@@ -12,6 +12,8 @@ pre-commit = "^3.6.0"
 sphinx-rtd-theme = "^2.0.0"
 fastapi = "^0.115.0"
 fastapi-cli = "^0.0.5"
+pyjwt = "^2.9.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 
 [tool.poetry.group.logs.dependencies]
 logging = "^0.4.9.6"

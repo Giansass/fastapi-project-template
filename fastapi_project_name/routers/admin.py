@@ -6,6 +6,11 @@ from fastapi.security import OAuth2PasswordBearer
 
 from ..dependencies import get_token_header
 
+# Parameters
+SECRET_KEY = "93a5169cecdc311c4b1557213082083b"  # openssl rand -hex 16
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
 # Router definition
 router = APIRouter(
     prefix="/admin",
