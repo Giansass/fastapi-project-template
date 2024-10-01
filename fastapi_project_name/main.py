@@ -1,7 +1,7 @@
 """Main module"""
 from fastapi import FastAPI
 
-from .routers import users
+from .routers import admin, users
 
 # from .dependencies import get_query_token, get_token_header
 # from .internal import admin
@@ -9,6 +9,7 @@ from .routers import users
 
 app = FastAPI()
 app.include_router(users.router)
+app.include_router(admin.router)
 # app.include_router(
 #     admin.router,
 #     prefix="/admin",

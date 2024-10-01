@@ -1,4 +1,4 @@
-"""An example of router used to retrieve username"""
+"""Routers to manage users"""
 
 from typing import Annotated
 
