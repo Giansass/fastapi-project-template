@@ -50,7 +50,7 @@ class UserInDB(User):
 
 
 # User DB
-fake_users_db = {
+users_db = {
     "johndoe": {
         "username": "johndoe",
         "full_name": "John Doe",
@@ -129,7 +129,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
         token_data = TokenData(username=username)
     except InvalidTokenError as exc:
         raise credentials_exception from exc
-    user = get_user(fake_users_db, username=token_data.username)
+    user = get_user(users_db, username=token_data.username)
     if user is None:
         raise credentials_exception
     return user
@@ -149,7 +149,7 @@ async def login_for_access_token(
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
 ) -> Token:
     """aaa"""
-    user = authenticate_user(fake_users_db, form_data.username, form_data.password)
+    user = authenticate_user(users_db, form_data.username, form_data.password)
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
         data={"sub": user.username},
