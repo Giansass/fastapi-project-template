@@ -55,14 +55,14 @@ users_db = {
         "username": "johndoe",
         "full_name": "John Doe",
         "email": "johndoe@example.com",
-        "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
+        "hashed_password": "$2b$12$.5296hJ7pNjhE8dJWBSMJOV28yq5BRIvLaXMZzbyVa3vxlYhRhmIu",  # test
         "disabled": False,
     }
 }
 
 # Router definition
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/admin/token")
 router = APIRouter(
     prefix="/admin",
     tags=["admin"],
@@ -90,9 +90,9 @@ def get_user(db, username: str | None = None):
     return user
 
 
-def authenticate_user(fake_db, username: str, password: str):
+def authenticate_user(db, username: str, password: str):
     """aaa"""
-    user = get_user(fake_db, username)
+    user = get_user(db, username)
     if not user or not verify_password(password, user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -158,17 +158,39 @@ async def login_for_access_token(
     return Token(access_token=access_token, token_type="bearer")
 
 
-@router.get("/users/me/", response_model=User)
+# @router.get("/user/me", response_model=User)
+# async def who_am_i(
+#     current_user: Annotated[User, Depends(get_current_active_user)],
+# ):
+#     """aaa"""
+#     return current_user
+
+
+@router.post("/user/create")
+async def create_user(
+    user_to_create: UserInDB,
+):
+    """aaa"""
+    if user_to_create.username in users_db:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="The user already exists",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    user_db = {
+        "username": user_to_create.username,
+        "full_name": user_to_create.full_name,
+        "email": user_to_create.email,
+        "hashed_password": pwd_context.hash(user_to_create.hashed_password),
+        "disabled": False,
+    }
+
+    return user_db
+
+
+@router.delete("/user/delete")
 async def read_users_me(
     current_user: Annotated[User, Depends(get_current_active_user)],
 ):
     """aaa"""
     return current_user
-
-
-@router.get("/users/me/items/")
-async def read_own_items(
-    current_user: Annotated[User, Depends(get_current_active_user)],
-):
-    """aaa"""
-    return [{"item_id": "Foo", "owner": current_user.username}]
