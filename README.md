@@ -1,4 +1,4 @@
-# A Python project template
+# A FastAPI project template
 <a id="readme-top"></a>
 <!-- PROJECT SHIELDS -->
 <!--
@@ -22,7 +22,7 @@
 <br />
 <div align="center">
 
-  <h3 align="center">python-project-template</h3>
+  <h3 align="center">fastapi-project-template</h3>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
@@ -78,6 +78,7 @@ This project aims to define a template to use to develop a Python project. The t
 This section lists the programming languages used in the project:
 
 [![Python][Python.com]][Python-url]
+[![FastAPI][FastAPI]][FastAPI-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,26 +102,28 @@ In order to properly install the template take the following steps:
    ```sh
    git clone https://github.com/<user_name>/<repo_name>.git
    ```
+3. Clean poetry cache
+4.
 
-3. Create a poetry virtualenv
+5. Create a poetry virtualenv
    ```sh
    poetry env use python3
    ```
-4. Create the poetry.lock form the pyproject.toml (I decided to not committing the poetry.lock since the project doesn't not need to bee perfectly reproducible in other environments, here the [official documentation](https://python-poetry.org/docs/basic-usage/#committing-your-poetrylock-file-to-version-control))
+6. Create the poetry.lock form the pyproject.toml (I decided to not committing the poetry.lock since the project doesn't not need to bee perfectly reproducible in other environments, here the [official documentation](https://python-poetry.org/docs/basic-usage/#committing-your-poetrylock-file-to-version-control))
    ```sh
    poetry lock
    ```
-5. Install all the packages in the poetry.lock
+7. Install all the packages in the poetry.lock
    ```sh
    poetry install
    ```
 
-6. Install all pre-commit hooks
+8. Install all pre-commit hooks
    ```sh
    pre-commit install --hook-type pre-commit --hook-type pre-push
    ```
 
-7. Modify project, copyright, author and release from the docs/conf.py used by Sphinx
+9. Modify project, copyright, author and release from the docs/conf.py used by Sphinx
    ```sh
    project_name=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
    sed "s/python_project_template/${project_name}/" docs/conf.py
@@ -186,6 +189,8 @@ Andrea Giansanti
 [license-url]: https://github.com/Giansass/python-project-template/blob/develop/LICENSE
 [Python.com]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://www.python.org/
+[FastAPI]: https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
+[FastAPI-url]: https://fastapi.tiangolo.com/
 [pre-commit-shield]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=for-the-badge
 [pre-commit-url]: https://pre-commit.com/
 [black-shield]: https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge
